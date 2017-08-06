@@ -1,0 +1,23 @@
+import Flow from '../src/Flow';
+
+let myFlow = new Flow();
+
+const myData = {
+  numOfItems: 16,
+};
+
+myFlow.pipe({
+		module:'common',
+		name: 'getItems',
+	}, myData)
+  .toServer()
+  ...
+  ...
+  ...
+  .activate((item)=>{
+		console.log(item);
+	},
+  console.error,
+  ()=>{
+		console.log('done');
+	});
