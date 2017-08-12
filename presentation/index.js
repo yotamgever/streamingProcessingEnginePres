@@ -35,13 +35,22 @@ const images = {
   rxjs: require("../assets/rxjs.png"),
   buffer: require("../assets/buffer.png"),
   window: require("../assets/window.png"),
+  IE: require("../assets/IE.png"),
+  badIdea: require("../assets/badIdea.jpg"),
   concat: require("../assets/concat.png"),
   merge: require("../assets/merge.png"),
   debounce: require("../assets/debounce.png"),
   throttle: require("../assets/throttle.png"),
   filter: require("../assets/filter.png"),
   stream: require("../assets/stream.jpg"),
+  engine: require("../assets/engine.jpg"),
   groupBy: require("../assets/groupBy.png"),
+  fast: require("../assets/fast.gif"),
+  known: require("../assets/known.gif"),
+  scenes: require("../assets/scenes.gif"),
+  lioUnshaved: require("../assets/lio_unshaved.png"),
+  lioShaved: require("../assets/lio_shaved.jpg"),
+  yuri: require("../assets/Yuri.jpg"),
   x: require("../assets/x.png")
 };
 
@@ -66,6 +75,13 @@ export default class Presentation extends React.Component {
             Streaming Processing Engine
           </Heading>
           <Image src={images.logo} margin="100px auto 40px" height="150px"/>
+        </Slide>
+
+        <Slide transition={["zoom"]} bgColor="primary">
+          <Heading size={1} fit lineHeight={1} textColor="secondary">
+            Introduction
+          </Heading>
+          <Image src={images.yuri} margin="100px auto 40px" height="250px"/>
         </Slide>
 
         <Slide transition={["zoom"]} bgColor="primary">
@@ -99,13 +115,13 @@ export default class Presentation extends React.Component {
               <ListItem>Communication</ListItem>
             </Appear>
             <Appear fid="2">
-              <Image src={images.webSocket}/>
+              <Image src={images.webSocket} margin="-60px 850px auto 650px"/>
             </Appear>
             <Appear fid="3">
-              <ListItem>Web Sockets VS Ajax</ListItem>
+              <ListItem margin="-360px auto auto auto">Web Sockets VS Ajax</ListItem>
             </Appear>
             <Appear fid="4">
-              <ListItem>Why Not?</ListItem>
+              <ListItem margin="40px auto auto auto">Why Not?</ListItem>
             </Appear>
           </List>
         </Slide>
@@ -117,16 +133,25 @@ export default class Presentation extends React.Component {
               <ListItem>Threads & Interrupting the User Interface</ListItem>
             </Appear>
             <Appear fid="2">
-              <ListItem>Background</ListItem>
+              <Image src={images.IE} margin="-140px auto auto 310px" width="300px" height="150px"/>
             </Appear>
             <Appear fid="3">
-              <ListItem>Abilities & Limitations</ListItem>
+              <ListItem>Background</ListItem>
             </Appear>
             <Appear fid="4">
-              <ListItem>Communication</ListItem>
+              <ListItem>Abilities & Limitations</ListItem>
             </Appear>
             <Appear fid="5">
+              <ListItem>Communication</ListItem>
+            </Appear>
+            <Appear fid="6">
               <ListItem>Why Not?</ListItem>
+            </Appear>
+            <Appear fid="7">
+              <Image src={images.lioUnshaved} margin="20px 850px auto auto" height="250px"/>
+            </Appear>
+            <Appear fid="8">
+              <Image src={images.lioShaved} margin="-600px 850px 40px 260px" height="250px"/>
             </Appear>
           </List>
         </Slide>
@@ -155,11 +180,96 @@ export default class Presentation extends React.Component {
             <Quote textSize={26}>What happens when you combine your passion, strength and value? This is the process of creating true art.</Quote>
             <Cite textSize={26}>J.R. Rim</Cite>
           </BlockQuote>
+          <Image src={images.engine} height="250px"/>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="tertiary">
+          <Heading size={1} fit textColor="secondary">The Idea</Heading>
+          <Image src={images.badIdea} height="250px"/>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} textColor="secondary">Why</Heading>
+          <List textColor="tertiary">
+            <Appear fid="1">
+              <ListItem>Data as stream</ListItem>
+            </Appear>
+            <Appear fid="2">
+              <ListItem>Processing data</ListItem>
+            </Appear>
+            <Appear fid="3">
+              <ListItem>Client - Server</ListItem>
+            </Appear>
+            <Appear fid="4">
+              <ListItem>Fast</ListItem>
+            </Appear>
+            <Appear fid="5">
+              <Image src={images.fast} height="250px"/>
+            </Appear>
+          </List>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="tertiary">
           <Heading size={1} fit textColor="secondary">Base Concepts</Heading>
         </Slide>
+
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} textColor="secondary">Modules</Heading>
+          <List textColor="tertiary">
+            <Appear fid="1">
+              <ListItem>package.json</ListItem>
+            </Appear>
+            <Appear fid="2">
+              <ListItem>Entry</ListItem>
+            </Appear>
+            <Appear fid="3">
+              <Image src={images.known} height="250px"/>
+            </Appear>
+            <Appear fid="4">
+              <ListItem>Importing</ListItem>
+            </Appear>
+            <Appear fid="5">
+              <ListItem>Exporting</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
+        <CodeSlide
+          transition={["fade"]}
+          lang="js"
+          code={require("raw-loader!../assets/package.json.example")}
+          ranges={[
+              { loc: [0, 16], title: "Module package.json" },
+              { loc: [1, 2], note: "Flow" },
+              { loc: [2, 3], note: "Entry" },
+              { loc: [4, 7], note: "Same as npm module" }
+          ]}
+        />
+
+        <CodeSlide
+          transition={["fade"]}
+          lang="js"
+          code={require("raw-loader!../assets/common.js.example")}
+          ranges={[
+              { loc: [0, 9], title: "Module index.js" },
+              { loc: [2, 8], note: "Export" },
+              { loc: [3, 7], note: "Functions..." }
+          ]}
+        />
+
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} textColor="secondary">Positions</Heading>
+        </Slide>
+
+        <CodeSlide
+          transition={["fade"]}
+          lang="js"
+          code={require("raw-loader!../assets/package.json.example")}
+          ranges={[
+              { loc: [0, 16], title: "Module package.json" },
+              { loc: [8, 9], note: "webSocket / webWorker / main / omitted" }
+          ]}
+        />
 
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={1} textColor="secondary">Flow</Heading>
@@ -178,20 +288,6 @@ export default class Presentation extends React.Component {
             </Appear>
           </List>
         </Slide>
-
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} textColor="secondary">Positions</Heading>
-        </Slide>
-
-        <CodeSlide
-          transition={["fade"]}
-          lang="js"
-          code={require("raw-loader!../assets/package.json.example")}
-          ranges={[
-              { loc: [0, 16], title: "Module package.json" },
-              { loc: [13, 14], note: "webSocket / webWorker / main" }
-          ]}
-        />
 
         <CodeSlide
           transition={["fade"]}
@@ -228,12 +324,63 @@ export default class Presentation extends React.Component {
             <Appear fid="4">
               <ListItem>Activatation</ListItem>
             </Appear>
+            <Appear fid="5">
+              <Image src={images.scenes} margin="-100px 850px auto 650px" width="300px"/>
+            </Appear>
           </List>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary">
           <Heading size={1} fit textColor="primary">Example</Heading>
         </Slide>
+
+        <CodeSlide
+          transition={["fade"]}
+          lang="js"
+          code={require("raw-loader!../assets/example.main.js.example")}
+          ranges={[
+              { loc: [0, 36], title: "Full Example" },
+              { loc: [4, 7], note: "Params" },
+              { loc: [8, 10], note: "Flow start from server" },
+              { loc: [10, 14]}
+          ]}
+        />
+
+        <CodeSlide
+          transition={["fade"]}
+          lang="js"
+          code={require("raw-loader!../assets/example.main.js.example")}
+          ranges={[
+              { loc: [14, 18]}
+          ]}
+        />
+
+        <CodeSlide
+          transition={["fade"]}
+          lang="js"
+          code={require("raw-loader!../assets/example.main.js.example")}
+          ranges={[
+              { loc: [18, 23]}
+          ]}
+        />
+
+        <CodeSlide
+          transition={["fade"]}
+          lang="js"
+          code={require("raw-loader!../assets/example.main.js.example")}
+          ranges={[
+              { loc: [23, 28]}
+          ]}
+        />
+
+        <CodeSlide
+          transition={["fade"]}
+          lang="js"
+          code={require("raw-loader!../assets/example.main.js.example")}
+          ranges={[
+              { loc: [28, 31]}
+          ]}
+        />
 
         <Slide transition={["fade"]} bgColor="primary">
           <Heading size={1} fit textColor="secondary">Moving Modules</Heading>

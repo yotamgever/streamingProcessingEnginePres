@@ -1,15 +1,10 @@
 {
   "name": "common",
+  "main": "index.js",
   "version": "1.0.0",
-  "engines": {
-    "node": ">=7.0.0",
-    "npm": "~3.0.0",
-    "sisense": ">=6.6"
-  },
   "dependencies": {
     "ramda": "^0.23.0",
-  }
+  },
   "description": "",
-  "main": "index.js",
   "backgroundType": "webSocket"
 }

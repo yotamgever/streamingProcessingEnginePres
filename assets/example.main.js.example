@@ -1,0 +1,35 @@
+import Flow from '../src/Flow';
+
+let myFlow = new Flow();
+
+const myData = {
+  dataUrl: 'http://salaries.com',
+};
+
+myFlow
+  .toServer()
+  .pipe({
+		module: 'common',
+		name: 'getSalariesAsStream',
+	}, myData)
+  .pipe({
+    module: 'utils',
+    name: 'markHighSalaries'
+  })
+  .toBakckground()
+  .pipe({
+    module: 'math',
+    name: 'raiseSalaries'
+  })
+  .toMain()
+  .pipe({
+    module: 'common',
+    name: 'log',
+  })
+  .activate((value)=>{
+		addRowToTable(value)
+	},
+  console.error,
+  ()=>{
+		console.log('done');
+	});
