@@ -40,6 +40,7 @@ const images = {
   debounce: require("../assets/debounce.png"),
   throttle: require("../assets/throttle.png"),
   filter: require("../assets/filter.png"),
+  stream: require("../assets/stream.jpg"),
   groupBy: require("../assets/groupBy.png"),
   x: require("../assets/x.png")
 };
@@ -130,6 +131,24 @@ export default class Presentation extends React.Component {
           </List>
         </Slide>
 
+        <Slide transition={["fade"]} bgColor="primary">
+          <Heading size={1} textColor="secondary">Streaming</Heading>
+          <List textColor="tertiary">
+            <Appear fid="1">
+              <ListItem>Flow</ListItem>
+            </Appear>
+            <Appear fid="2">
+              <ListItem>Stream: ---x------x-----x--------x--x---</ListItem>
+            </Appear>
+            <Appear fid="3">
+              <ListItem>RxJS</ListItem>
+            </Appear>
+            <Appear fid="4">
+              <ListItem>Why Not?</ListItem>
+            </Appear>
+          </List>
+        </Slide>
+
         <Slide transition={["fade"]} bgColor="secondary">
           <Heading size={1} fit textColor="primary">Streaming Processing Engine</Heading>
           <BlockQuote>
@@ -148,32 +167,14 @@ export default class Presentation extends React.Component {
             <Appear fid="1">
               <ListItem>Everything Is a Stream</ListItem>
             </Appear>
-            <Appear fid="2">
+            <Appear fid="3">
               <ListItem>Input And Output</ListItem>
             </Appear>
-            <Appear fid="3">
+            <Appear fid="4">
               <ListItem>onData, onError, onComplete</ListItem>
             </Appear>
-            <Appear fid="4">
-              <ListItem>Error Handling</ListItem>
-            </Appear>
-          </List>
-        </Slide>
-
-        <Slide transition={["fade"]} bgColor="primary">
-          <Heading size={1} textColor="secondary">Modules</Heading>
-          <List textColor="tertiary">
-            <Appear fid="1">
-              <ListItem>package.json</ListItem>
-            </Appear>
             <Appear fid="2">
-              <ListItem>Entry</ListItem>
-            </Appear>
-            <Appear fid="3">
-              <ListItem>Importing</ListItem>
-            </Appear>
-            <Appear fid="4">
-              <ListItem>Exporting</ListItem>
+              <Image src={images.stream} margin="-100px 850px auto 850px" width="300px"/>
             </Appear>
           </List>
         </Slide>
@@ -204,8 +205,11 @@ export default class Presentation extends React.Component {
               { loc: [8, 9], note: "Pipe"},
               { loc: [8, 12], note: "Module"},
               { loc: [12, 13], note: "Position"},
-              { loc: [0, 36], title: "Usage And Activation" },
-              { loc: [0, 36], title: "Usage And Activation" },
+              { loc: [13, 16]},
+              { loc: [16, 23], note: "Activation"},
+              { loc: [16, 19], note: "onData"},
+              { loc: [19, 20], note: "onError"},
+              { loc: [20, 23], note: "onComplete"},
           ]}
         />
 
